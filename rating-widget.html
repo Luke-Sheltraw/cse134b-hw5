@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rating Widget</title>
+  <script src="scripts/RatingWidget.js" type="module"></script>
+  <style>
+    /* Demo of configurability of rating widget */
+    :root {
+      --rating-widget-star-color-passive: #b3b3b3;
+      --rating-widget-star-color-active: #ffe000;
+    }
+  </style>
+</head>
+<body>
+  <a href="/index.html">&lt; Back</a>
+  <h1>Rating Widget</h1>
+  <rating-widget button-symbol="★">
+    <form action="https://httpbin.org/post" method="POST">
+      <label for="rating">How satisfied are you?</label>
+      <input type="hidden" name="question" value="How satisfied are you?">
+      <input type="hidden" name="sentBy" value="HTML">
+      <input type="number" id="rating" name="rating" min="1" max="5" value="0" required>
+      <button type="submit">Submit</button>
+    </form>
+  </rating-widget>
+</body>
+</html>
