@@ -19,6 +19,7 @@ const WeatherWidget = () => {
   const {
     temperature,
     temperatureUnit,
+    isDaytime,
     shortForecast,
     windSpeed,
     windDirection,
@@ -26,10 +27,9 @@ const WeatherWidget = () => {
     probabilityOfPrecipitation,
   } = weatherData;
 
-  const curDateHours = new Date().getHours();
   const colorTheme = shortForecast.toLowerCase().includes('sunny')
     ? 'sunny'
-    : curDateHours > 8 && curDateHours < 20
+    : isDaytime
       ? 'cloudy'
       : 'dark';
 

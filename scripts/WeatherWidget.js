@@ -148,6 +148,7 @@ class WeatherWidget extends HTMLElement {
     const {
       temperature,
       temperatureUnit,
+      isDaytime,
       shortForecast,
       windSpeed,
       windDirection,
@@ -171,10 +172,9 @@ class WeatherWidget extends HTMLElement {
     rainItemEl.innerText = `Chance of rain (this hour): ${ probabilityOfPrecipitation.value }%`;
 
     /* Set color theme of widget */
-    const curDateHours = new Date().getHours();
     this._contentWrapperEl.dataset.theme = shortForecast.toLowerCase().includes('sunny')
       ? 'sunny'
-      : curDateHours > 8 && curDateHours < 20
+      : isDaytime
         ? 'cloudy'
         : 'dark';
 
